@@ -1,19 +1,65 @@
 # Comandos básicos Git e Github
 
-Sumário
-=================
+## Sumário
 <!--ts-->
-  * [Guia Rápido](#guia-rapido)
+   * [Guia Rápido](#guia-rápido)
       * [Versionando os arquivos localmente](#versionando-com-o-git)
       * [Subindo para o Github](#subindo-o-repositório-local-para-o-github)
+      * [Trazendo um repositório da nuvem](#trazendo-um-repositório-da-nuvem)
       * [Trabalhando com branches](#trabalhando-com-branches)
+      * [Para juntar os códigos das branches](#para-juntar-os-códigos-das-branches)
    * [Conceitos](#conceitos)
-      * [Versionamento com o Git](#versionando-com-o-git)
+      * [Versionamento com o Git](#versionamento-com-o-git)
       * [Subindo o repositório local para a nuvem](#subindo-para-o-github)
-      * [Trabalhando com branches](#trabalhando-com-branches)
+      * [Branches e Merge](#branches-e-merge)
 <!--te-->
 
-## Versionando com o Git 
+# Guia Rápido
+## Versionando com o Git
+1. Para iniciar o versionamento Git em um projeto
+	`git init`
+2. Adicionar os arquivos para o commit
+	`git add <nome do arquivo>` OU `git add .`
+3. Salvar as alterações criando o commit
+	`git commit -m "Descrição do commit"`
+
+## Subindo o repositório local para o Github
+1. Primeiro temos que vincular um repositório remoto
+	`git remote add <apelido do repositório> <link do repositório>`
+	Exemplo: `git remote add origin https://github.com/Thiago-Nascimento/referencia-git`
+2. Com o repositório vinculado, podemos subir os commits para a nuvem
+	`git push <apelido do repositorio remoto> <branch atual>`
+	Exemplo: `git push origin develop`
+
+## Trazendo um repositório da nuvem
+Se você não possui o repositório na sua máquina, para trazer um repositório do Github, execute:
+`git clone <link do repositório>`
+Exemplo: `git clone https://github.com/Thiago-Nascimento/referencia-git`
+
+## Trabalhando com branches
+Para criar uma nova branch:
+`git branch <nome da nova branch>`
+Exemplo: `git branch develop`
+
+Listar as branches existentes, a branch que estiver marcada é a branch atual
+`git branch -a`
+
+Para mudar de branch:
+`git checkout <nome da branch de destino>`
+Exemplo: `git checkout develop`
+
+## Para juntar os códigos das branches
+Supondo que estamos na branch "pagina-login", e queremos adicionar o código dessa branch na branch "develop"
+
+1. Precisamos mudar para a branch onde ficarão as alterações (Nesse caso "develop"):
+`git checkout develop`
+
+2. Agora trazemos os commits da branch "pagina-login" para a branch atual (develop):
+`git merge <branch de onde queremos trazer o código>`
+Nesse caso: `git merge pagina-login`
+
+# Conceitos
+## Versionamento com o Git 
 Para criar iniciar o versionamento em um projeto utilizando o Git, dentro da pasta do projeto execute o comando:
 `git init`
 
@@ -26,7 +72,7 @@ Ou se quiser adicionar todos os arquivos modificados à lista, execute:
 Para salvar as alterações feitas, depois de adicionar os arquivos a fila, é necessário fazer o commit, para isso execute:
 `git commit -m "Descrição do commit"`
 
-## Subindo o repositório local para o Github
+## Subindo para o Github
 Podemos sincronizar um projeto local do Git com um repositório remoto no Github, para fazer isso precisamos vincular o projeto local com esse repositório na nuvem.
 
 Para isso executamos:
@@ -55,7 +101,7 @@ Por exemplo:
 
 Esse comando vai trazer uma cópia do repositório, inclusive já pronta para os futuros commits e pushes.
 
-## Trabalhando com branches.
+## Branches e Merge
 
 #### O que são branches?
 Branches são ramificações do código principal, onde conseguimos trabalhar em separado, geralmente criamos uma branch para desenvolver uma funcionalidade e ao mesmo tempo não alterar o código principal.
