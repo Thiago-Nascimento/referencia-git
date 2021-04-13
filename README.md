@@ -6,6 +6,7 @@
       * [Versionando os arquivos localmente](#versionando-com-o-git)
       * [Subindo para o Github](#subindo-o-repositório-local-para-o-github)
       * [Trazendo um repositório da nuvem](#trazendo-um-repositório-da-nuvem)
+      * [Sincronizando um repositório local com o da nuvem](#sincronizando um repositório local com o da nuvem)
       * [Trabalhando com branches](#trabalhando-com-branches)
       * [Para juntar os códigos das branches](#para-juntar-os-códigos-das-branches)
    * [Conceitos](#conceitos)
@@ -44,6 +45,13 @@ Se você não possui o repositório na sua máquina, para trazer um repositório
 `git clone <link do repositório>`
 
 Exemplo: `git clone https://github.com/Thiago-Nascimento/referencia-git`
+
+## Sincronizando um repositório local com o da nuvem
+Se você já possui o repositório na sua máquina e na nuvem, e quer trazer as alterações que foram feitas no repositório remoto, execute:
+
+`git pull <nome do repositório> <nome da branch>`
+
+Exemplo: `git pull origin main`
 
 ## Trabalhando com branches
 Para criar uma nova branch:
@@ -127,6 +135,19 @@ Por exemplo:
 `git clone https://github.com/Thiago-Nascimento/referencia-git`
 
 Esse comando vai trazer uma cópia do repositório, inclusive já pronta para os futuros commits e pushes.
+
+Agora para trazer as mudanças que estão no repositório remoto, e ainda não estão no repositório local, precisar fazer o "pull" desses commits. Para isso executamos:
+
+`git pull <nome do repositorio> <nome da branch>`
+
+Por exemplo:
+
+`git pull origin main`
+
+Se o repositório local já estiver na branch que deseja trazer do repositório remoto podemos omitir o nome do repositorio e o nome da branch, ficando simplesmente:
+
+`git pull`
+
 
 ## Branches e Merge
 
