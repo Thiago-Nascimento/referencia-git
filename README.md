@@ -6,7 +6,7 @@
       * [Versionando os arquivos localmente](#versionando-com-o-git)
       * [Subindo para o Github](#subindo-o-repositório-local-para-o-github)
       * [Trazendo um repositório da nuvem](#trazendo-um-repositório-da-nuvem)
-      * [Sincronizando um repositório local com o da nuvem](#sincronizando um repositório local com o da nuvem)
+      * [Sincronizando um repositório local com o da nuvem](#sincronizando-um-repositório-local-com-o-da-nuvem)
       * [Trabalhando com branches](#trabalhando-com-branches)
       * [Para juntar os códigos das branches](#para-juntar-os-códigos-das-branches)
    * [Conceitos](#conceitos)
