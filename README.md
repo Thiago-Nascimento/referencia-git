@@ -1,198 +1,296 @@
-# Comandos básicos Git e Github
+# Referência Git
+
+Comandos Básicos de Git para Repositórios online do Github
 
 ## Sumário
-<!--ts-->
-   * [Guia Rápido](#guia-rápido)
-      * [Versionando os arquivos localmente](#versionando-com-o-git)
-      * [Subindo para o Github](#subindo-o-repositório-local-para-o-github)
-      * [Trazendo um repositório da nuvem](#trazendo-um-repositório-da-nuvem)
-      * [Sincronizando um repositório local com o da nuvem](#sincronizando-um-repositório-local-com-o-da-nuvem)
-      * [Trabalhando com branches](#trabalhando-com-branches)
-      * [Para juntar os códigos das branches](#para-juntar-os-códigos-das-branches)
-   * [Conceitos](#conceitos)
-      * [Versionamento com o Git](#versionamento-com-o-git)
-      * [Subindo o repositório local para a nuvem](#subindo-para-o-github)
-      * [Branches e Merge](#branches-e-merge)
-<!--te-->
 
-# Guia Rápido
-## Versionando com o Git
+* [Guia Rápido](#guia-rápido)
+	* [Versionando os arquivos localmente](#versionando-com-o-git)
+	* [Subindo para o Github](#subindo-o-repositório-local-para-o-github)
+	* [Trazendo um repositório da nuvem](#trazendo-clonando-um-repositório-da-nuvem)
+	* [Sincronizando um repositório local com o da nuvem](#sincronizando-um-repositório-local-com-o-da-nuvem)
+	* [Trabalhando com branches](#trabalhando-com-branches)
+	    * [Para criar uma nova branch](#para-criar-uma-nova-branch)
+	    * [Para listar as branches existentes](#listar-as-branches-existentes-a-branch-que-estiver-marcada-é-a-branch-atual)
+	    * [Para mudar de branch](#para-mudar-de-branch)
+	    * [Para juntar os códigos das branches](#para-juntar-os-códigos-das-branches)
+* [Conceitos](#conceitos)
+	* [Versionamento com o Git](#versionamento-com-o-git)
+	* [Subindo o repositório local para a nuvem](#subindo-para-o-github)
+	* [Branches e Merge](#branches-e-merge)
+
+---
+## Guia Rápido
+
+### Versionando com o Git
+
 1. Para iniciar o versionamento Git em um projeto:
 
-	`git init`
+	```sh 
+	git init
+	```
+	
 2. Adicionar os arquivos para o commit:
 
-	`git add <nome do arquivo>` ou `git add .`
+	```sh 
+	git add .
+	```
+
+    Ou
+
+	```sh 
+	git add "Nome do arquivo"
+	```
+    
 3. Salvar as alterações criando o commit:
 
-	`git commit -m "Descrição do commit"`
+	```sh 
+	git commit -m "Descrição do commit"
+	```
 
-## Subindo o repositório local para o Github
-1. Primeiro temos que vincular um repositório remoto
+### Subindo o repositório local para o Github
+
+1. Primeiro vincule um repositório remoto
 
 	`git remote add <apelido do repositório> <link do repositório>`
 
-	Exemplo: `git remote add origin https://github.com/Thiago-Nascimento/referencia-git`
+	Exemplo:
+	
+	```sh 
+	git remote add origin https://github.com/Thiago-Nascimento/referencia-git
+	```
 2. Com o repositório vinculado, podemos subir os commits para a nuvem
 
 	`git push <apelido do repositorio remoto> <branch atual>`
 
-	Exemplo: `git push origin develop`
+	Exemplo:
+	
+	```sh 
+	git push origin develop
+	```
 
-## Trazendo um repositório da nuvem
-Se você não possui o repositório na sua máquina, para trazer um repositório do Github, execute:
+### Trazendo (clonando) um repositório da nuvem
 
-`git clone <link do repositório>`
+* Se você não possui o repositório na sua máquina, para trazer um repositório do Github, execute:
 
-Exemplo: `git clone https://github.com/Thiago-Nascimento/referencia-git`
+	`git clone <link do repositório>`
 
-## Sincronizando um repositório local com o da nuvem
-Se você já possui o repositório na sua máquina e na nuvem, e quer trazer as alterações que foram feitas no repositório remoto, execute:
+	Exemplo:
+	
+	```sh 
+	git clone https://github.com/Thiago-Nascimento/referencia-git
+	```
 
-`git pull <nome do repositório> <nome da branch>`
+### Sincronizando um repositório local com o da nuvem
 
-Exemplo: `git pull origin main`
+* Se você já possui o repositório na sua máquina e na nuvem, e quer trazer as alterações que foram feitas no repositório remoto, execute:
 
-## Trabalhando com branches
-Para criar uma nova branch:
+	`git pull <nome do repositório> <nome da branch>`
 
-`git branch <nome da nova branch>`
+	Exemplo:
+	
+	```sh 
+	git pull origin main
+	```
 
-Exemplo: `git branch develop`
+### Trabalhando com branches
 
-Listar as branches existentes, a branch que estiver marcada é a branch atual
+* #### Para criar uma nova branch:
 
-`git branch -a`
+	`git branch <nome da nova branch>`
 
-Para mudar de branch:
+	Exemplo:
+	
+	```sh 
+	git branch develop
+	```
 
-`git checkout <nome da branch de destino>`
+* #### Listar as branches existentes, a branch que estiver marcada é a branch atual
 
-Exemplo: `git checkout develop`
+	```sh 
+	git branch -a
+	```
 
-## Para juntar os códigos das branches
-Supondo que estamos na branch "pagina-login", e queremos adicionar o código dessa branch na branch "develop"
+* #### Para mudar de branch:
 
-1. Precisamos mudar para a branch onde ficarão as alterações (Nesse caso "develop"):
+	`git checkout <nome da branch de destino>`
 
-`git checkout develop`
+	Exemplo:
+	
+	```sh 
+	git checkout develop
+	```
 
-2. Agora trazemos os commits da branch "pagina-login" para a branch atual (develop):
+* #### Para juntar os códigos das branches
 
-`git merge <branch de onde queremos trazer o código>`
+	Supondo que estamos na branch "pagina-login", e queremos adicionar o código dessa branch na branch "develop"
 
-Nesse caso: `git merge pagina-login`
+	1. Precisamos mudar para a branch onde ficarão as alterações (Nesse caso "develop"):
 
-# Conceitos
-## Versionamento com o Git 
-Para criar iniciar o versionamento em um projeto utilizando o Git, dentro da pasta do projeto execute o comando:
+        ```sh 
+        git checkout develop
+        ```
 
-`git init`
+	2. Agora trazemos os commits da branch "pagina-login" para a branch atual (develop):
 
-Para adicionar os arquivos para salvar o commit, é necessário adiciona-los a fila, para isso execute o comando:
+		`git merge <branch de onde queremos trazer o código>`
 
-`git add <nome do arquivo>`
+        Nesse caso:
+	
+        ```sh 
+        git merge pagina-login
+        ```
+	
+## Conceitos
 
-Ou se quiser adicionar todos os arquivos modificados à lista, execute:
+### Versionamento com o Git 
 
-`git add .`
+* Para iniciar o versionamento em um projeto utilizando o Git, dentro da pasta do projeto execute o seguinte comando:
 
-Para salvar as alterações feitas, depois de adicionar os arquivos a fila, é necessário fazer o commit, para isso execute:
+	```sh 
+	git init
+	```
 
-`git commit -m "Descrição do commit"`
+* Para adicionar os arquivos e para salvar o commit, é necessário adiciona-los na fila.
+    * Se quiser adicionar todos os arquivos modificados na fila, execute:
 
-## Subindo para o Github
-Podemos sincronizar um projeto local do Git com um repositório remoto no Github, para fazer isso precisamos vincular o projeto local com esse repositório na nuvem.
+        ```sh 
+        git add .
+        ```
 
-Para isso executamos:
+    * Se quiser adicionar arquivos específicos, execute:
 
-`git remote add <apelido do repositorio remoto> <link do repositório>`
+        `git add <nome do arquivo>`
 
-Por exemplo:
+        Por exemplo:
 
-`git remote add origin https://github.com/Thiago-Nascimento/referencia-git`
+        ```sh 
+        git add "index.html"
+        ```
 
-Esse comando vincula um repositório remoto (< link do repositório >), utilizando um "apelido" (< apelido do repositório>).
+* Para salvar as alterações feitas, depois de adicionar os arquivos na fila, é necessário fazer o commit, para isso execute:
 
-Depois de vincular o repositório remoto, já podemos subir os commits para ele, para fazer isso usamos o comando:
+	```sh 
+	git commit -m "Descrição do commit"
+	```
 
-`git push <apelido do repositorio remoto> <branch atual>`
+### Subindo para o Github
 
-Por exemplo:
+* Podemos sincronizar um projeto local do Git com um repositório remoto no Github, para fazer isso precisamos vincular o projeto local com esse repositório na nuvem.
 
-`git push origin main`
+   1. Para isso executamos:
 
-Esse comando sobe os commits feitos na branch (< branch atual>) para o repositorio remoto (< apelido do repositorio remoto>)
+        `git remote add <apelido do repositorio remoto> <link do repositório>`
 
-Com esses passos, o repositório no github já vai conter os commits realizados.
+        Por exemplo:
 
-Caso queiramos trazer uma cópia do repositório do github, para a nossa máquina, teremos que clonar o repositório, para isso execute o comando:
+        ```sh 
+        git remote add origin https://github.com/Thiago-Nascimento/referencia-git
+        ```
 
-`git clone <link do repositorio>`
+        Esse comando vincula um repositório remoto (< link do repositório >), utilizando um "apelido" (< apelido do repositório>).
 
-Por exemplo:
+    2. Depois de vincular o repositório remoto, já podemos subir os commits para ele, para fazer isso usamos o comando:
 
-`git clone https://github.com/Thiago-Nascimento/referencia-git`
+        `git push <apelido do repositorio remoto> <branch atual>`
 
-Esse comando vai trazer uma cópia do repositório, inclusive já pronta para os futuros commits e pushes.
+        Por exemplo:
 
-Agora para trazer as mudanças que estão no repositório remoto, e ainda não estão no repositório local, precisar fazer o "pull" desses commits. Para isso executamos:
+        ```sh 
+        git push origin main
+        ```
 
-`git pull <nome do repositorio> <nome da branch>`
+        Esse comando sobe os commits feitos na branch (< branch atual>) para o repositorio remoto (< apelido do repositorio remoto>)
 
-Por exemplo:
+    Com esses passos, o repositório no github já vai conter os commits realizados.
 
-`git pull origin main`
+* Se deseja trazer uma cópia de um repositório do github, para a sua máquina, é necessário clonar o repositório, para isso execute o comando:
 
-Se o repositório local já estiver na branch que deseja trazer do repositório remoto podemos omitir o nome do repositorio e o nome da branch, ficando simplesmente:
+    `git clone <link do repositorio>`
 
-`git pull`
+    Por exemplo:
 
+    ```sh 
+    git clone https://github.com/Thiago-Nascimento/referencia-git
+    ```
 
-## Branches e Merge
+    Esse comando vai fazer uma cópia do repositório, inclusive já pronta e linkada para os futuros commits e pushes.
 
-#### O que são branches?
-Branches são ramificações do código principal, onde conseguimos trabalhar em separado, geralmente criamos uma branch para desenvolver uma funcionalidade e ao mesmo tempo não alterar o código principal.
+* Agora para trazer as mudanças que estão no repositório remoto, e ainda não estão no repositório local, precisar fazer o "pull" desses commits. Para isso executamos:
 
-É uma prática muito utilizada entre os desenvolvedores, principalmente para termos um ambiente de homologação, de teste, e não colocarmos o código novo direto em produção, evitando que códigos não revisados sejam incrementados ao código principal.
+    `git pull <nome do repositorio> <nome da branch>`
 
-#### Como trabalhar com as branches?
-Quando criamos um repositório, por padrão, ele possui uma única branch, que é a branch principal, geralmente tem o nome `main`.
+    Por exemplo:
 
-Para criarmos uma branch de homologação, podemos seguir os seguintes passos:
+    ```sh 
+    git pull origin main
+    ```
 
-1.  ##### Criando a branch de homologação
-Para criar uma branch de homologação chamada develop, executamos:
+    Se o repositório local já estiver na branch que deseja trazer do repositório remoto podemos omitir o nome do repositorio e o nome da branch, ficando simplesmente:
 
-`git branch <nome da branch>`
+    ```sh 
+    git pull
+    ```
 
-Nesse caso:
 
-`git branch develop`
+### Branches e Merge
 
-2.  ##### Para utilizarmos a branch "develop"
-Para utilizarmos essa branch criada temos que sair da branch "main" e ir para a "develop", para isso, executamos:
+* #### O que são branches?
 
-`git checkout <branch de destino>`
+    Branches são ramificações do código principal, onde conseguimos trabalhar em separado, geralmente criamos uma branch para desenvolver uma funcionalidade e ao mesmo tempo não alterar o código principal.
 
-Nesse caso:
+    É uma prática muito utilizada entre os desenvolvedores - principalmente para ter ambientes de desenvolvimento, homologação, testes separados - e não colocar o código novo direto em produção, evitando que códigos não revisados sejam incrementados ao código principal.
 
-`git checkout develop`  
+* #### Como trabalhar com as branches?
 
-Depois de feitos os commits nessa branch, para subirmos ela para o repositório no Github, executamos:
+    Quando criamos um repositório, por padrão, ele possui uma única branch, que é a branch principal, geralmente tem o nome `main`.
 
-`git push origin develop`
+    Para criarmos uma branch de desenvolvimento, podemos seguir os seguintes passos:
 
-#### Juntando as branches
+    1.  ##### Criando a branch de desenvolvimento
 
-Quando queremos juntar o conteúdo das branches, temos que fazer o `merge`.
+        Para criar uma branch de desenvolvimento chamada develop, executamos:
 
-Por exemplo, depois de uma revisão e sabendo que o código está correto podemos levar o código da branch de homologação (`develop`), para a branch principal (`main`), para isso...
+        `git branch <nome da branch>`
 
-1.  ##### Primeiro mudamos para a branch principal
+        Nesse caso:
 
-	`git checkout main`
+        ```sh 
+        git branch develop
+        ```
 
-2.  ##### E juntamos o código da "develop" com a "main"
+    2.  ##### Para utilizarmos a branch "develop"
 
-	`git merge develop`
+        Para utilizarmos essa branch criada temos que sair da branch "main" e ir para a "develop", para isso, executamos:
+
+        `git checkout <branch de destino>`
+
+        Nesse caso:
+
+        ```sh 
+        git checkout develop
+        ``` 
+
+    3. Depois de feitos os commits nessa branch, para subirmos ela para o repositório no Github, executamos:
+
+        ```sh 
+        git push origin develop
+        ```
+
+* #### Juntando as branches
+
+    Quando queremos juntar o conteúdo das branches, temos que fazer o `merge`.
+
+    Por exemplo, depois de uma revisão e sabendo que o código está correto podemos levar o código da branch de desenvolvimento (`develop`), para a branch principal (`main`), para isso...
+
+    1.  ##### Primeiro mudamos para a branch principal
+
+        ```sh 
+        git checkout main
+        ```
+
+    2.  ##### E juntamos o código da "develop" com a "main"
+
+        ```sh 
+        git merge develop
+        ```
